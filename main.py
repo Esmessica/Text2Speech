@@ -6,7 +6,6 @@ tts = gtts.gTTS("AHoj šmejde", lang="cs")
 tts.save("hello.mp3")
 playsound("hello.mp3")
 """
-# import pyttsx3 as pyttsx3
 
 # python text to speech
 import pyttsx3
