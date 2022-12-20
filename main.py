@@ -14,7 +14,6 @@ engine = pyttsx3.init()
 engine.say("HELLO")
 engine.runAndWait()
 
-
 engine = pyttsx3.init("dummy")
 voices = engine.getProperty('voices')
 for voice in voices:
