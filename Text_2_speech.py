@@ -15,9 +15,8 @@ with open(f"{file_name}.txt", "w", encoding="utf-8") as web_file:
         print("+1")
         web_file.write(one_article_text)
         web_file.write("\n")
+
         engine.setProperty("rate", 120)
-
         engine.say(one_article_text)
-
         engine.runAndWait()
 
