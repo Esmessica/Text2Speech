@@ -10,25 +10,26 @@ try:
     pdf_file = input("PDF: ")
     path = open(f"{pdf_file}.pdf", "rb")
     reader = PyPDF2.PdfReader(path)
-    frompage = reader.pages[15]
+    frompage = reader.pages[2]
     text = frompage.extract_text()
     tts = gtts.gTTS(f"{text}", lang="cs")
     file_name = f"{pdf_file}"
 
-    if "_" in pdf_file:
+    if "_" in pdf_file:     # decision for shortening final mp3 file
         f = file_name.replace("_", "")
         tts.save(f"{f}.mp3")
 
-    else:
+    else:                   # code that runs if _ is not in file name
         tts.save(f"{pdf_file}.mp3")
         #  playsound(f"{pdf_file}.mp3")
 
     print("\nDone")
 
-except FileNotFoundError:
+except FileNotFoundError:    # error for not existing file name
     print("This file seems to not exist.")
 
 
-
+# add code for picking page
+# make multiple pages chooser
 
 
