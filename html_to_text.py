@@ -25,7 +25,8 @@ with open(f"{file_name}.txt", "w", encoding="utf-8") as web_file:
         engine.say(one_article_text)
         engine.runAndWait()
 
-"""TODO:
+"""
+TODO:
     1) OOP whole project
     2) make it choose scarping web or using donwloaded pdf/txt file
     3) try to solve language issue
