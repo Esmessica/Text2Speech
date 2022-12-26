@@ -1,6 +1,7 @@
 import pyttsx3
 
 
+
 class FileHandler:
 
     def user_file_input(self):
@@ -18,14 +19,42 @@ class FileHandler:
                 web_file.write("\n")
 
     def file_test(self):
-        with open(f"{self._file_name}.txt", "r", encoding="utf-8") as web_file:
+        engine = pyttsx3.init()
+        reader = PdfReader("spalovac_mrtvol.pdf")
+        number_of_pages = reader.numPages
+        page = reader.pages[0]
+
+        for i in range(reader.numPages):
+            page = reader.pages[i]
+
+        text = page.extractText()
+        engine.say(text)
+        engine.runAndWait()
+        engine.save_to_file(text, 'test.mp3')
+
+"""
+        with open(f"{self._file_name}.pdf", "r") as web_file:
             webs = web_file.read()
             engine = pyttsx3.init()
             engine.say(webs)
-            engine.runAndWait()
+            engine.runAndWait()"""
 
 
-f = FileHandler()
-f.user_file_input()
-f.file_test()
+
+
+
+"""engine = pyttsx3.init()
+reader = PdfReader("spalovac_mrtvol.pdf")
+number_of_pages = len(reader.pages)
+page = reader.pages[10]
+
+for i in range(len(reader.pages)):
+    page = reader.pages[i]
+
+text = page.extract_text()
+engine.say(text)
+engine.runAndWait()
+engine.save_to_file(text, 'test.mp3')
+"""
+
 
