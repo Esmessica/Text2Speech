@@ -31,5 +31,3 @@ except FileNotFoundError:    # error for not existing file name
 
 # add code for picking page
 # make multiple pages chooser
-
-
