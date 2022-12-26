@@ -17,7 +17,6 @@ engine = pyttsx3.init("dummy")
 voices = engine.getProperty('voices')
 
 for voice in voices:
-
     print(f"Voice: {voice.name}")
 
 
