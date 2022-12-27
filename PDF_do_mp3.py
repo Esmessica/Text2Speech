@@ -1,6 +1,5 @@
 import PyPDF2
 import gtts
-# from playsound import playsound
 
 
 print("\tEnter name of your desired file below.\n(Please remember that file has to be in same"
@@ -12,18 +11,18 @@ try:
     path = open(f"{pdf_file}.pdf", "rb")
     reader = PyPDF2.PdfReader(path)
 
-    pocet = 0
-    for strana in path:        # counts pages
-        pocet = pocet + 1
+    num_pages = 0
+    for page in path:        # counts pages
+        num_pages = num_pages + 1
+        # frompage = reader.pages[num_pages]
+        frompage = len(reader.pages)
+    print(f"{num_pages} pages long document")
 
-    print(f"{pocet} pages long document")
-
-    if 5 < pocet < 50 :
+    if 5 < num_pages < 50 :
         print("This file is abit long, might take a moment")
-    elif pocet > 50:
+    elif num_pages > 50:
         print("This might take some time, make yourself comfy")
 
-    frompage = reader.pages[2]
     text = frompage.extract_text()
     tts = gtts.gTTS(f"{text}", lang="cs")
     file_name = f"{pdf_file}"
