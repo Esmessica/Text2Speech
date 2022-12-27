@@ -10,7 +10,7 @@ pdf_reader = PyPDF2.PdfReader(book)
 pages = len(pdf_reader.pages)
 final_text = ""
 with pdfplumber.open(file) as pdf:
-    for i in range(0, 20):       # pages
+    for i in range(0, pages):
         page = pdf.pages[i]
         text = page.extract_text()
         final_text += text
