@@ -2,7 +2,8 @@ import PyPDF2
 import pyttsx3
 import pdfplumber
 import time
-from playsound import playsound
+
+
 now = time.time()
 file = "romeo.pdf"
 book = open(file, "rb")
