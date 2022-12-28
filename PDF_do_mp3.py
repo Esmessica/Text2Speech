@@ -1,5 +1,6 @@
 import PyPDF2
 import gtts
+import pdfplumber
 
 
 print("\tEnter name of your desired file below.\n(Please remember that file has to be in same"
@@ -14,14 +15,14 @@ try:
     num_pages = 0
     for page in path:        # counts pages
         num_pages = num_pages + 1
-        # frompage = reader.pages[num_pages]
         frompage = len(reader.pages)
+
     print(f"{num_pages} pages long document")
 
     if 5 < num_pages < 50 :
         print("This file is abit long, might take a moment")
     elif num_pages > 50:
-        print("This might take some time, make yourself comfy")
+        print("This might take some time, make yourself comfy")  # prints sentence based on lenght of pdf
 
     text = frompage.extract_text()
     tts = gtts.gTTS(f"{text}", lang="cs")
