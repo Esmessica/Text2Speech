@@ -24,7 +24,7 @@ engine = pyttsx3.init()
 engine.save_to_file(final_text, f"{pdf_name}.mp3")
 engine.runAndWait()
 
-minus = time.time()  # end of application
+minus = time.time()  # end of application time
 
 print("DONE")
 print(f"Took {int(minus - now)} seconds to finnish")
