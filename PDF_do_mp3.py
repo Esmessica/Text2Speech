@@ -1,5 +1,4 @@
 import PyPDF2
-import gtts
 import pyttsx3
 import pdfplumber
 
