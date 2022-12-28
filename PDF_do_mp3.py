@@ -1,8 +1,9 @@
 import PyPDF2
 import gtts
+import pyttsx3
 import pdfplumber
 
-
+# printing information for start
 print("\tEnter name of your desired file below.\n(Please remember that file has to be in same"
       " folder with this program OR enter path to file-example below)\n")
 print("Example of path: 'C:/Users/my_name/Desktop/NAME_OF_PDF_FILE'\n")
@@ -11,12 +12,20 @@ try:
     pdf_file = input("PDF: ")
     path = open(f"{pdf_file}.pdf", "rb")
     reader = PyPDF2.PdfReader(path)
+    pages = len(reader.pages)
+
+    final_text = ""
+
+    with pdfplumber.open(pdf_file) as pdf:
+        for i in range(0, pages):
+            page = pdf.pages[i]
+            text = page.extract_text()
+            final_text += text
 
     num_pages = 0
-    for page in path:        # counts pages
+    for page in path:            # counts pages
         num_pages = num_pages + 1
         frompage = len(reader.pages)
-
     print(f"{num_pages} pages long document")
 
     if 5 < num_pages < 50 :
@@ -41,6 +50,5 @@ except FileNotFoundError:    # error for not existing file name
     print("This file seems to not exist.")
 
 
-
 # add code for picking page
-# make multiple pages chooser
+# use two versions of libraries based on language decision
