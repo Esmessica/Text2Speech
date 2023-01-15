@@ -3,6 +3,7 @@ import pyttsx3
 import pdfplumber
 import time
 
+# This file serves as brainstorm for PDF_do_mp3.py file
 
 now = time.time()       # start of application timer
 

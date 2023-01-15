@@ -1,12 +1,17 @@
 import PyPDF2
 import pyttsx3
 import pdfplumber
+import time
+
+
+now = time.time()       # start of application timer
 
 # printing information for start
 print("\tEnter name of your desired file below.\n(Please remember that file has to be in same"
       " folder with this program OR enter path to file-example below)\n")
 print("Example of path: 'C:/Users/my_name/Desktop/NAME_OF_PDF_FILE'\n")
 
+# Main part of PDF to MP3 file app
 try:
     pdf_name = input("PDF: ")
     file = f"{pdf_name}"
@@ -37,8 +42,10 @@ try:
     engine = pyttsx3.init()
     engine.save_to_file(final_text, f"{f}.mp3")
     engine.runAndWait()
+    minus = time.time()  # end of application time
 
     print("\nDone")
+    print(f"Took {int(minus - now)} seconds to finnish")
 
 except FileNotFoundError:    # error for not existing file name
     print("This file seems to not exist.")
