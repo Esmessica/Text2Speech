@@ -7,14 +7,25 @@ tts.save("hello.mp3")
 playsound("hello.mp3")
 """
 
-# python text to speech
 import pyttsx3
-
+import PyPDF2
 
 engine = pyttsx3.init()
-file_in = open("test.txt", "r")
-engine.say(file_in)
-engine.runAndWait()
+file_in = open("spalovac_mrtvol.pdf", "rb")
+read_pdf = PyPDF2.PdfReader(file_in, strict=False)
+number_of_pages = len(read_pdf.pages)
+
+for i in range(3, number_of_pages):
+    # Read the PDF page
+    page = read_pdf.pages[i]
+    # Extract the text of the PDF page
+    page_content = page.extract_text()
+
+    engine.say(page_content)
+
+    engine.runAndWait()
+    coun = 0
+    print(f"Page: {coun + 1}")
 
 """
 engine = pyttsx3.init("dummy")
