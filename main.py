@@ -9,16 +9,19 @@ playsound("hello.mp3")
 
 # python text to speech
 import pyttsx3
+
+
 engine = pyttsx3.init()
-engine.say("HELLO")
+file_in = open("test.txt", "r")
+engine.say(file_in)
 engine.runAndWait()
 
+"""
 engine = pyttsx3.init("dummy")
 voices = engine.getProperty('voices')
-
 for voice in voices:
     print(f"Voice: {voice.name}")
-
+"""
 
 """engine = pyttsx3.init()
 text = "Python is a great programming language"
